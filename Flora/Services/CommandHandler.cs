@@ -87,7 +87,7 @@ namespace Flora.Services
             if (!command.IsSpecified)
             {
                 System.Console.WriteLine($"Command failed to execute for [{user.Username}]!");
-                await context.Channel.SendMessageAsync($"Sorry, .... Something went wrong!");
+                await context.Channel.SendMessageAsync($"Sorry, ... Something went wrong!");
                 return;
             }
 
@@ -100,7 +100,7 @@ namespace Flora.Services
 
             
             //Failure scenario, let's let the user know
-            await context.Channel.SendMessageAsync($"Sorry, ... You Lack the Permissions for that command reach out to [] || []!");
+            await context.Channel.SendMessageAsync($"Sorry, ... You Lack the Permissions for that command reach out to [ Zez ]!");
         }
 
 

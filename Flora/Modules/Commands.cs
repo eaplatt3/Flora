@@ -114,9 +114,10 @@ namespace Flora.Modules
             //This will reply with the embed
             await ReplyAsync(null, false, embed.Build());
         }
-
-        [RequireOwner(Group = "BOT COMMANDER")]
+        
+        
         [Command("raid")]
+        [RequireOwner(Group = "BOT COMMANDER")]
         public async Task raidSignUp(string raid, string date, string time, string ampm, string description, string description2 = " ")
         {
 
