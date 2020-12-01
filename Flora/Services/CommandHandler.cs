@@ -81,11 +81,13 @@ namespace Flora.Services
         public async Task CommandExecuteAsync(Optional<CommandInfo> command, ICommandContext context, IResult result)
         {
             var user = context.User;
+            
 
             //If a command isn't found, log that info to the console and exit this method
             if (!command.IsSpecified)
             {
                 System.Console.WriteLine($"Command failed to execute for [{user.Username}]!");
+                await context.Channel.SendMessageAsync($"Sorry, .... Something went wrong!");
                 return;
             }
 
@@ -96,8 +98,9 @@ namespace Flora.Services
                 return;
             }
 
+            
             //Failure scenario, let's let the user know
-            await context.Channel.SendMessageAsync($"Sorry, ... Something went wrong!");
+            await context.Channel.SendMessageAsync($"Sorry, ... You Lack the Permissions for that command reach out to [] || []!");
         }
 
 

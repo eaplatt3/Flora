@@ -4,13 +4,17 @@ using System;
 using System.Text;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Discord.WebSocket;
+using System.Linq;
 
 namespace Flora.Modules
 {
+
     //For commands to be available, and have to Contect passed
     //To them, we must inherit ModuleBase
     public class Commands : ModuleBase
     {
+        
         [Command("hello")]
         public async Task HelloCommand()
         {
@@ -22,7 +26,7 @@ namespace Flora.Modules
 
             //Build out the reply
             sb.AppendLine($"You are -> [{user.Username}]");
-            sb.AppendLine("I must now say, World!");
+            //  sb.AppendLine(name);
 
             //Send simple string replay
             await ReplyAsync(sb.ToString());
@@ -111,8 +115,7 @@ namespace Flora.Modules
             await ReplyAsync(null, false, embed.Build());
         }
 
-
-
+        [RequireOwner(Group = "BOT COMMANDER")]
         [Command("raid")]
         public async Task raidSignUp(string raid, string date, string time, string ampm, string description, string description2 = " ")
         {
@@ -126,11 +129,10 @@ namespace Flora.Modules
 
             Emote[] myReactions = { interested, maybe, nope, reserve };
 
-            //Emote myReaction = Emote.Parse("<:Interested:721034001724342423>");
-
             DateTime dateTime = DateTime.Parse(date);
             string day = dateTime.ToString("ddd");
 
+            var footer = new EmbedFooterBuilder().WithText("React Below");
 
 
             if (raid == "gos")
@@ -139,7 +141,6 @@ namespace Flora.Modules
                 {
                     var filename = "gos_Sun.png";
 
-                    var footer = new EmbedFooterBuilder().WithText("React Below");
 
                     var embed = new EmbedBuilder()
                     {
@@ -164,9 +165,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //Footer = "React Below",
+                       
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -182,9 +183,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -200,9 +201,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -218,9 +219,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -236,9 +237,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -254,9 +255,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                       
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -275,9 +276,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                      
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -293,9 +294,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                      
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -311,9 +312,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -329,9 +330,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                     
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -347,9 +348,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                       
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -365,9 +366,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                       
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -383,9 +384,9 @@ namespace Flora.Modules
                         Title = "Garden of Salvation - Divinty Run",
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}",
-                        //FooterText = "React Below"
+                        
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -405,7 +406,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -422,7 +423,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -439,7 +440,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -456,7 +457,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -473,7 +474,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -490,7 +491,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -507,7 +508,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -527,7 +528,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -544,7 +545,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -561,7 +562,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -578,7 +579,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -595,7 +596,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -612,7 +613,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -629,7 +630,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -649,7 +650,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -666,7 +667,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -683,7 +684,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -700,7 +701,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -717,7 +718,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -734,7 +735,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -751,7 +752,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -771,7 +772,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -788,7 +789,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -805,7 +806,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -822,7 +823,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -839,7 +840,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -856,7 +857,7 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build(); 
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
@@ -873,13 +874,26 @@ namespace Flora.Modules
                         Description = "```" + day + ", " + date + " @ " + time + " " + ampm + " " + "\n" + description + "```" + description2,
                         ImageUrl = $"attachment://{filename}"
 
-                    }.Build();
+                    }.WithFooter(footer).Build();
 
                     SentEmbed = await Context.Channel.SendFileAsync(filename, embed: embed);
 
                     await SentEmbed.AddReactionsAsync(myReactions);
                 }
             }
+        }
+
+        [Command("help")]
+        public async Task helpMe()
+        {
+            var sb = new StringBuilder();
+
+            sb.AppendLine("**8 Ball** use: \n **\"!ask\"** then your question \n ex: *\"!ask will it rain?\"*");
+            sb.AppendLine("**Raid Scheduler** use: \n **\"!raid\"** then the raid's abbreviated name, Date, Time, " +
+                "Brief Description in \" \" \n You can also add an optional second description following the first" +
+                " \n ex: *\"!raid gos 1/1/2020 8:00 pm \"Description\" \"Second Description\"*");
+
+            await ReplyAsync(sb.ToString());
         }
 
     }
