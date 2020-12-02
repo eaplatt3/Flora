@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\EPlatt\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\EPlatt\\.nuget\\packages"
+      "C:\\Users\\eapla\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\eapla\\.nuget\\packages"
     ]
   }
 }

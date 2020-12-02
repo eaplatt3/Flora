@@ -117,7 +117,7 @@ namespace Flora.Modules
         
         
         [Command("raid")]
-        [RequireOwner(Group = "BOT COMMANDER")]
+        [RequireOwner(Group = "Bot Commander")]
         public async Task raidSignUp(string raid, string date, string time, string ampm, string description, string description2 = " ")
         {
 
