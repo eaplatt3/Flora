@@ -1822,19 +1822,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\eapla\\.nuget\\packages\\": {}
+    "C:\\Users\\EPlatt\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\eapla\\Source\\Repos\\eaplatt3\\Flora\\Flora\\Flora.csproj",
+      "projectUniqueName": "C:\\Users\\EPlatt\\source\\repos\\Flora\\Flora\\Flora.csproj",
       "projectName": "Flora",
-      "projectPath": "C:\\Users\\eapla\\Source\\Repos\\eaplatt3\\Flora\\Flora\\Flora.csproj",
-      "packagesPath": "C:\\Users\\eapla\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\eapla\\Source\\Repos\\eaplatt3\\Flora\\Flora\\obj\\",
+      "projectPath": "C:\\Users\\EPlatt\\source\\repos\\Flora\\Flora\\Flora.csproj",
+      "packagesPath": "C:\\Users\\EPlatt\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\EPlatt\\source\\repos\\Flora\\Flora\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\eapla\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\EPlatt\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1846,6 +1846,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -1857,6 +1858,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Discord.Net": {
             "target": "Package",
@@ -1894,7 +1896,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
